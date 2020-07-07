@@ -1,25 +1,24 @@
 <template>
-  <div class="contianer">
-    <div class="col">
-      <b-button variant="info" @click="generateInfinity">generateInfinity</b-button>
-      {{counter}}
-      <b-list-item id="item" v-for="item in items" :key="item">
-        <div :id="item">{{item}}</div>
-      </b-list-item>
+  <b-container>
+    <b-button variant="info" @click="generateInfinity">generateInfinity</b-button>
+    {{counter}}
+    <b-list-group-item id="item" v-for="item in items" :key="item">
+      <div :id="item">{{item}}</div>
+    </b-list-group-item>
+    <b-form-input type="text" v-model="number"></b-form-input>
+    <div v-if="number">
+      {{ $t(`numbers.${number}`) }}
     </div>
-  </div>
+  </b-container>
 </template>
 
 <script>
 export default {
   name: 'BrokenList',
   data: () => ({
-    fields: [
-      '#',
-      { key: 'item' },
-    ],
     items: [],
     counter: 0,
+    number: null,
   }),
   methods: {
     generateInfinity() {

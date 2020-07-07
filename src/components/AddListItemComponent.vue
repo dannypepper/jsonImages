@@ -17,12 +17,10 @@
 
 <script>
 export default {
-  data() {
-    return {
-      itemTitle: '',
-      isCreating: false,
-    };
-  },
+  data: () => ({
+    itemTitle: '',
+    isCreating: false,
+  }),
   methods: {
     openForm() {
       this.isCreating = true;
